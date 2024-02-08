@@ -20,7 +20,24 @@
         </div>
       </header>
 
-      <main></main>
+      <main>
+        <div class="container">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">TODO</th>
+                <th scope="col">DONE</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="(elem, i) in todos" :key="i">
+                <td>{{ elem.todo }}</td>
+                <td>{{ elem.done }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </main>
 
       <footer></footer>
     </div>
