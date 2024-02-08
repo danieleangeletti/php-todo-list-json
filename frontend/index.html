@@ -31,7 +31,11 @@
             </thead>
             <tbody>
               <tr v-for="(elem, i) in todos" :key="i">
-                <td>{{ elem.todo }}</td>
+                <td
+                  :class="{'text-decoration-line-through': elem.done == true}"
+                >
+                  {{ elem.todo }}
+                </td>
                 <td>{{ elem.done }}</td>
               </tr>
             </tbody>
