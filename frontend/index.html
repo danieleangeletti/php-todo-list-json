@@ -41,7 +41,11 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="(elem, i) in todos" :key="i">
+              <tr
+                @click="isDoneOrIsNotDone(i)"
+                v-for="(elem, i) in todos"
+                :key="i"
+              >
                 <td
                   :class="{'text-decoration-line-through': elem.done == true}"
                 >

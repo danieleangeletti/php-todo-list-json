@@ -43,5 +43,23 @@ createApp({
           }
         });
     },
+    isDoneOrIsNotDone(i) {
+      axios
+        .post(
+          "http://localhost:8888/PHP%20ToDo%20List%20JSON/php-todo-list-json/backend/change_status.php",
+          {
+            index: i,
+          },
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+          }
+        )
+        .then((res) => {
+          // this.todos[i].done = !res.data[i].done;
+          // console.log(res.data[i]);
+        });
+    },
   },
 }).mount("#app");
