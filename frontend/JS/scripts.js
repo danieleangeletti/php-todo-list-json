@@ -4,6 +4,7 @@ createApp({
   data() {
     return {
       todos: [],
+      newTask: "",
     };
   },
   mounted() {
@@ -15,5 +16,32 @@ createApp({
         console.log(res.data);
         this.todos = res.data;
       });
+  },
+  methods: {
+    addTask() {
+      axios
+        .post(
+          "http://localhost:8888/PHP%20ToDo%20List%20JSON/php-todo-list-json/backend/create_task.php",
+          {
+            task: this.newTask,
+          },
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+          }
+        )
+        .then((res) => {
+          if (res.data.code == 200) {
+            this.todos.push({
+              todo: this.newTask,
+              done: false,
+            });
+            this.newTask = "";
+          } else if (res.data.code == 400) {
+            alert(res.data.message);
+          }
+        });
+    },
   },
 }).mount("#app");

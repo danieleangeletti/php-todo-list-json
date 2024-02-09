@@ -22,6 +22,17 @@
 
       <main>
         <div class="container">
+          <div class="mb-3">
+            <input
+              v-model="newTask"
+              type="text"
+              class="form-control"
+              placeholder="Insert new task"
+            />
+          </div>
+          <button @click="addTask()" type="button" class="btn btn-primary">
+            ADD TASK
+          </button>
           <table class="table">
             <thead>
               <tr>
