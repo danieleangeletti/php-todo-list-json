@@ -41,15 +41,34 @@
               </tr>
             </thead>
             <tbody>
-              <tr
-                @click="isDoneOrIsNotDone(i)"
-                v-for="(elem, i) in todos"
-                :key="i"
-              >
-                <td
-                  :class="{'text-decoration-line-through': elem.done == true}"
-                >
-                  {{ elem.todo }}
+              <tr v-for="(elem, i) in todos" :key="i">
+                <td>
+                  <div class="row">
+                    <div class="col-3">
+                      <span
+                        :class="{'text-decoration-line-through': elem.done == true}"
+                        >{{ elem.todo }}</span
+                      >
+                    </div>
+                    <div class="col-2">
+                      <button
+                        @click="isDoneOrIsNotDone(i)"
+                        type="button"
+                        class="btn btn-success"
+                      >
+                        DONE
+                      </button>
+                    </div>
+                    <div class="col-3">
+                      <button
+                        @click="deleteTask(i)"
+                        type="button"
+                        class="btn btn-danger"
+                      >
+                        DELETE TASK
+                      </button>
+                    </div>
+                  </div>
                 </td>
                 <td>{{ elem.done }}</td>
               </tr>

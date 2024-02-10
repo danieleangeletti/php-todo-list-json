@@ -62,5 +62,24 @@ createApp({
           }
         });
     },
+    deleteTask(i) {
+      axios
+        .post(
+          "http://localhost:8888/PHP%20ToDo%20List%20JSON/php-todo-list-json/backend/delete_task.php",
+          {
+            index: i,
+          },
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+          }
+        )
+        .then((res) => {
+          if (res.data.code == 200) {
+            this.todos.splice(i, 1);
+          }
+        });
+    },
   },
 }).mount("#app");
