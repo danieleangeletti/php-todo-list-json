@@ -8,6 +8,7 @@ $all_tasks = file_get_contents("db/todo.json");
 // Trasformare la stringa JSON corrispondente ai todo attualmente esistenti in un array di array associativi
 $all_tasks = json_decode($all_tasks, true);
 
+// Manipolare i dati
 $all_tasks[$index]["done"] = !$all_tasks[$index]["done"];
 
 // Scrivere la stringa JSON nel file todo.json

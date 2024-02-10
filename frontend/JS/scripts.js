@@ -57,8 +57,9 @@ createApp({
           }
         )
         .then((res) => {
-          // this.todos[i].done = !res.data[i].done;
-          // console.log(res.data[i]);
+          if (res.data.code == 200) {
+            this.todos[i].done = !this.todos[i].done;
+          }
         });
     },
   },
